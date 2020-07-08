@@ -1,7 +1,10 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    huhu
+  <div>
+    <b-row>
+      <b-col>
+        <p>Hallo, ich bin /home!</p>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
@@ -10,6 +13,6 @@
 //import HelloWorld from '@/components/HelloWorld.vue';
 
 export default {
-  name: 'Home',
+  name: 'HomeIndex',
 };
 </script>

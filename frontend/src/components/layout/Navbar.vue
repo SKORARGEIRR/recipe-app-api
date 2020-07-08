@@ -8,7 +8,6 @@
       <b-navbar-nav>
         <b-nav-item to="/login">Login</b-nav-item>
         <b-nav-item to="/opex2/home">Home</b-nav-item>
-        <b-nav-item to="/opex2/about">About</b-nav-item>
       </b-navbar-nav>
 
     </b-collapse>

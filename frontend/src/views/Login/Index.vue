@@ -1,24 +1,29 @@
 <template>
   <div>
     <b-row>
+      <b-col>
+        <test></test>
+      </b-col>
+    </b-row>
+    <b-row>
       <b-col sm="6" class="mx-auto">
         <b-form-group
-          id="group-username"
-          description="Bitte den Accountnamen eingeben."
-          label="Account"
-          label-for="username"
+          id="group-email"
+          description="Bitte die E-Mail Adresse eingeben."
+          label="E-Mail"
+          label-for="email"
         >
           <b-input-group size="lg" class="my-1">
             <template v-slot:prepend>
                 <b-input-group-text>
-                  <b-icon icon="person-fill"></b-icon>
+                  <b-icon icon="at"></b-icon>
                 </b-input-group-text>
             </template>
             <b-form-input
-            id="username"
+            id="email"
             type="email"
-            autocomplete="username"
-            placeholder="Benutzername"
+            autocomplete="email"
+            placeholder="beispiel@email.com"
             v-model="form.email"
             v-on:keyup.enter="loginUser()"
             ></b-form-input>
@@ -30,7 +35,7 @@
       <b-col sm="6" class="mx-auto">
         <b-form-group
           id="group-password"
-          description="Bitte das Accountpasswort eingeben."
+          description="Bitte das Passwort eingeben."
           label="Passwort"
           label-for="password"
         >
@@ -73,8 +78,13 @@ import { mapState, mapGetters, mapActions } from 'vuex'
 import axios from 'axios'
 import Cookie from 'js-cookie'
 
+import Test from '@/components/common/Test'
+
 export default {
-  name: 'Login',
+  name: 'LoginIndex',
+  components: {
+    Test,
+  },
   data() {
     return {
       form: {

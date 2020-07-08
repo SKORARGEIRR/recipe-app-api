@@ -4,9 +4,8 @@ import VueRouter from 'vue-router';
 import Deauthenticated from '../components/template/Deauthenticated.vue';
 import Authenticated from '../components/template/Authenticated.vue';
 // Import views
-import Login from '../views/Login.vue';
-import Home from '../views/Home.vue';
-import About from '../views/About.vue';
+import Login from '../views/Login/Index.vue';
+import Home from '../views/Home/Index.vue';
 
 Vue.use(VueRouter);
 
@@ -42,13 +41,6 @@ const routes = [
         name: 'Home',
         component: Home,
         meta: { title: 'OpEx2 Home' },
-      },
-      // About
-      {
-        path: 'about',
-        name: 'About',
-        component: About,
-        meta: { title: 'OpEx2 About' },
       },
     ],
   },
