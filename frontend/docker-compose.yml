@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  frontend:
+    container_name: opex2-frontend
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - '.:/frontend'
+      - './node_modules'
+    ports:
+      - '9080:8080'
