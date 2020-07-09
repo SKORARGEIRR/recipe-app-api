@@ -10,9 +10,13 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "axios-mock-adapter": "^1.18.1",
     "bootstrap-vue": "^2.15.0",
     "core-js": "^3.6.5",
+    "jquery": "^3.5.1",
     "js-cookie": "^2.2.1",
+    "sinon": "^9.0.2",
+    "sinon-chai": "^3.5.0",
     "vue": "^2.6.11",
     "vue-axios": "^2.1.5",
     "vue-router": "^3.2.0",
