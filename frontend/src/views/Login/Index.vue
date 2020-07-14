@@ -100,12 +100,19 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
+    ...mapGetters('auth', [
       'IS_USER_LOGGED_IN',
     ]),
   },
+  watch: {
+    IS_USER_LOGGED_IN (newVal, oldVal) {
+      if (newVal) {
+        this.$router.push({ name: 'Authenticated' });
+      };
+    },
+  },
   methods: {
-    ...mapActions([
+    ...mapActions('auth', [
         'login',
     ]),
     loginUser() {
@@ -113,6 +120,15 @@ export default {
       let password = this.form.password;
       this.login({ email: email, password: password });
     },
+  },
+  mounted() {
+    /**
+     * Redirect user in case of accessing this component after successful
+     * authentication.
+     */
+    if (this.IS_USER_LOGGED_IN) {
+      this.$router.push({ name: 'Authenticated' });
+    };
   },
 };
 </script>

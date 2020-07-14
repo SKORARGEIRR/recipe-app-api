@@ -8,6 +8,7 @@
       <b-navbar-nav>
         <b-nav-item to="/login">Login</b-nav-item>
         <b-nav-item to="/opex2/home">Home</b-nav-item>
+        <b-nav-item @click="logout()">Logout</b-nav-item>
       </b-navbar-nav>
 
     </b-collapse>
@@ -15,8 +16,15 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions } from 'vuex';
+
 export default {
   name: 'Navbar',
+  methods: {
+    ...mapActions('auth', [
+        'logout',
+    ]),
+  },
 }
 </script>
 

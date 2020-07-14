@@ -16,14 +16,14 @@ const routes = [
     name: 'Deauthenticated',
     component: Deauthenticated,
     redirect: '/login',
-    meta: { title: 'OpEx2 Deauthenticated' },
+    meta: { title: 'Operations Explorer 2' },
     children: [
       // Login
       {
         path: 'login',
         name: 'Login',
         component: Login,
-        meta: { title: 'OpEx2 Login' },
+        meta: { title: 'Operations Explorer 2 | Login' },
       },
     ],
   },
@@ -33,14 +33,14 @@ const routes = [
     name: 'Authenticated',
     component: Authenticated,
     redirect: '/opex2/home',
-    meta: { title: 'OpEx2 Authenticated' },
+    meta: { title: 'Operations Explorer 2' },
     children: [
       // Home
       {
         path: 'home',
         name: 'Home',
         component: Home,
-        meta: { title: 'OpEx2 Home' },
+        meta: { title: 'Operations Explorer 2 | Startseite' },
       },
     ],
   },

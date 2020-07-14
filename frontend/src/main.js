@@ -7,10 +7,43 @@ import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue';
 import axios from 'axios';
 // Vuex
 import Vuex from 'vuex';
-// Router
-import router from './router';
+// JS-Cookie
+import Cookie from 'js-cookie';
 // Store
 import store from './store';
+// Router
+import router from './router';
+/**
+ * Use beforeEach() to check for cookie and validate token inside before
+ * each redirect.
+ */
+router.beforeEach((to, from, next) => {
+  let cookie = Cookie.getJSON('user');
+
+  if (cookie) {
+    console.log('Cookie found.');
+    let token = cookie.token; // TODO: Implement token validation!
+    next()
+  } else {
+    // We have no cookie. Sad :-(
+      console.log('Cookie not found.');
+      // Make sure logged in status is set to false
+      store.commit('auth/TOGGLE_USER_LOGGED_IN', false);
+      // Redirect user to login page. Meanwhile, avoid looping endlessly
+      if (to.name !== 'Login') {
+        next({ name: 'Login' })
+      } else {
+        next()
+      };
+  };
+});
+// Change meta title of each page.
+const DEFAULT_TITLE = 'Operations Explorer'
+router.afterEach((to, from) => {
+  Vue.nextTick(() => {
+    document.title = to.meta.title || DEFAULT_TITLE;
+  });
+});
 // Import App
 import App from './App.vue';
 // Import static
