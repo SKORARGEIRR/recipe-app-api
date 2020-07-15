@@ -1,13 +1,12 @@
 <template>
   <div>
     <b-row>
-      <b-col>
-        <!-- Test component for unit test -->
-        <test></test>
+      <b-col sm="6" class="mx-auto bg-white mt-5 rounded">
+        <login-header></login-header>
       </b-col>
     </b-row>
     <b-row>
-      <b-col sm="6" class="mx-auto">
+      <b-col sm="6" class="mx-auto bg-white">
         <b-form-group
           id="group-email"
           description="Bitte die E-Mail Adresse eingeben."
@@ -33,7 +32,7 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col sm="6" class="mx-auto">
+      <b-col sm="6" class="mx-auto bg-white">
         <b-form-group
           id="group-password"
           description="Bitte das Passwort eingeben."
@@ -59,7 +58,7 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col sm="6" class="mx-auto">
+      <b-col sm="6" class="mx-auto bg-white pb-4 rounded">
         <b-button
           id="btn-login"
           type="submit"
@@ -71,9 +70,6 @@
         >
             <b-icon icon="box-arrow-in-right"></b-icon> Anmelden
         </b-button>
-        <pre>
-          logged_in: {{ IS_USER_LOGGED_IN }}
-        </pre>
       </b-col>
     </b-row>
   </div>
@@ -84,12 +80,12 @@ import { mapState, mapGetters, mapActions } from 'vuex';
 import axios from 'axios';
 import Cookie from 'js-cookie';
 
-import Test from '@/components/common/Test';
+import LoginHeader from '@/views/Login/Header';
 
 export default {
   name: 'LoginIndex',
   components: {
-    Test,
+    LoginHeader,
   },
   data() {
     return {
@@ -101,11 +97,11 @@ export default {
   },
   computed: {
     ...mapGetters('auth', [
-      'IS_USER_LOGGED_IN',
+      'IS_AUTH_LOGGED_IN',
     ]),
   },
   watch: {
-    IS_USER_LOGGED_IN (newVal, oldVal) {
+    IS_AUTH_LOGGED_IN (newVal, oldVal) {
       if (newVal) {
         this.$router.push({ name: 'Authenticated' });
       };
@@ -126,7 +122,7 @@ export default {
      * Redirect user in case of accessing this component after successful
      * authentication.
      */
-    if (this.IS_USER_LOGGED_IN) {
+    if (this.IS_AUTH_LOGGED_IN) {
       this.$router.push({ name: 'Authenticated' });
     };
   },

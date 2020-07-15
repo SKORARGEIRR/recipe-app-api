@@ -1,8 +1,12 @@
 <template>
   <div>
-    <b-container fluid>
-      <navbar></navbar>
-      <router-view/>
+    <b-container fluid="xl" class="px-0">
+      <b-row>
+        <b-col>
+          <navbar></navbar>
+          <router-view/>
+        </b-col>
+      </b-row>
     </b-container>
   </div>
 </template>

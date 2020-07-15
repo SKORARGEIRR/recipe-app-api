@@ -39,11 +39,11 @@ export const login = function({commit, dispatch, state, rootState, rootGetters},
       secure: false,
       sameSite: 'lax',
     });
-    commit(mutationTypes.TOGGLE_USER_LOGGED_IN, true);
+    commit(mutationTypes.TOGGLE_AUTH_LOGGED_IN, true);
   })
   .catch(err => {
     console.log('Login fehlgeschlagen.', err);
-    commit(mutationTypes.TOGGLE_USER_LOGGED_IN, false);
+    commit(mutationTypes.TOGGLE_AUTH_LOGGED_IN, false);
   });
 };
 
@@ -55,9 +55,12 @@ export const logout = function({commit, dispatch, state, rootState, rootGetters}
   // Remove user cookie
   Cookie.remove('user');
   // Toggle logged in status
-  commit(mutationTypes.TOGGLE_USER_LOGGED_IN, false);
+  commit(mutationTypes.TOGGLE_AUTH_LOGGED_IN, false);
   // Output all current cookies
   console.log('Current cookies are', Cookie.get());
-  // Redirect user to default page for non-authenticated users
-  router.push({ name: 'Deauthenticated' });
+  // Redirect user to login page, if not already present
+  let route = router.currentRoute;
+  if (route.name !== 'Login') {
+    router.push({ name: 'Deauthenticated' });
+  };
 };

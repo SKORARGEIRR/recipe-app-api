@@ -57,7 +57,7 @@ router.beforeEach((to, from, next) => {
         // Remove cookie
         Cookie.remove('user');
         // Make sure logged in status is set to false
-        store.commit('auth/TOGGLE_USER_LOGGED_IN', false);
+        store.commit('auth/TOGGLE_AUTH_LOGGED_IN', false);
         // Redirect user to login page. Meanwhile, avoid looping endlessly
         if (to.name !== 'Login') {
           next({ name: 'Login' });
@@ -73,7 +73,7 @@ router.beforeEach((to, from, next) => {
     // We have no cookie. Sad :-(
     console.log('Cookie not found.');
     // Make sure logged in status is set to false
-    store.commit('auth/TOGGLE_USER_LOGGED_IN', false);
+    store.commit('auth/TOGGLE_AUTH_LOGGED_IN', false);
     // Redirect user to login page. Meanwhile, avoid looping endlessly
     if (to.name !== 'Login') {
       next({ name: 'Login' });

@@ -1,4 +1,4 @@
-import Test from '../../src/components/common/Test';
+import LoginHeader from '../../src/views/Login/Header';
 import Login from '../../src/views/Login/Index';
 import { shallowMount, mount, createLocalVue } from '@vue/test-utils';
 import { expect } from 'chai';
@@ -22,6 +22,6 @@ describe('Login', () => {
   });
 
   it('should render Test component on mount', () => {
-    expect(wrapper.findComponent(Test).exists()).to.be.true;
+    expect(wrapper.findComponent(LoginHeader).exists()).to.be.true;
   });
 });

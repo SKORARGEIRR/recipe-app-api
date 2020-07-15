@@ -4,8 +4,9 @@ import VueRouter from 'vue-router';
 import Deauthenticated from '../components/template/Deauthenticated.vue';
 import Authenticated from '../components/template/Authenticated.vue';
 // Import views
-import Login from '../views/Login/Index.vue';
-import Home from '../views/Home/Index.vue';
+import LoginView from '../views/Login/Index.vue';
+import HomeView from '../views/Home/Index.vue';
+import MapView from '../views/Map/Index.vue';
 
 Vue.use(VueRouter);
 
@@ -22,7 +23,7 @@ const routes = [
       {
         path: 'login',
         name: 'Login',
-        component: Login,
+        component: LoginView,
         meta: { title: 'Operations Explorer 2 | Login' },
       },
     ],
@@ -39,8 +40,15 @@ const routes = [
       {
         path: 'home',
         name: 'Home',
-        component: Home,
+        component: HomeView,
         meta: { title: 'Operations Explorer 2 | Startseite' },
+      },
+      // Map
+      {
+        path: 'map',
+        name: 'Map',
+        component: MapView,
+        meta: { title: 'Operations Explorer 2 | Karte' },
       },
     ],
   },

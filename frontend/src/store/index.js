@@ -4,6 +4,7 @@ import axios from 'axios';
 import * as mutationTypes from '@/store/mutation-types';
 // Modules
 import auth from './modules/auth/auth';
+import map from './modules/map/map';
 
 Vue.use(Vuex);
 
@@ -30,5 +31,6 @@ export default new Vuex.Store({
   getters,
   modules: {
     auth,
+    map,
   },
 });

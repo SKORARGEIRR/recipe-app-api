@@ -3,11 +3,6 @@
     <b-container>
       <b-row>
         <b-col>
-          <navbar></navbar>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col>
           <router-view/>
         </b-col>
       </b-row>
