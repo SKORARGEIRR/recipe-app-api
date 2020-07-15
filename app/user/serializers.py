@@ -5,6 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 from rest_framework import serializers
 
 import base64
+import re
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -43,7 +44,7 @@ class AuthTokenSerializer(serializers.Serializer):
         """Validate and authenticate the user"""
         email = attrs.get('email')
         password = attrs.get('password')
-        # Decode base64 encoded password string from frontend
+        # Decode base64 encoded password
         dec_password_bytes = base64.urlsafe_b64decode(password)
         dec_password_str = str(dec_password_bytes, 'utf-8')
 

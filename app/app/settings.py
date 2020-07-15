@@ -142,4 +142,6 @@ AUTH_USER_MODEL = 'core.User'
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_HEADERS = list(default_headers) + [
     'access-control-allow-origin',
+    'access-control-allow-headers',
+    'accepts',
 ]
