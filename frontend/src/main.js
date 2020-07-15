@@ -49,7 +49,8 @@ import App from './App.vue';
 // Import static
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
-import './assets/css/custom.css';
+// Import custom SASS
+import '@/assets/custom-vars.scss';
 
 // Axios Config
 const apiUrl = 'http://localhost:9000/api';
