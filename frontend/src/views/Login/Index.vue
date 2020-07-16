@@ -125,6 +125,15 @@ export default {
     if (this.IS_AUTH_LOGGED_IN) {
       this.$router.push({ name: 'Authenticated' });
     };
+    /**
+     * Redirect user in case of accessing this component with cookie still
+     * intact but vuex cleared.
+     */
+    let cookie = Cookie.getJSON('user');
+    if (cookie) {
+      console.log('Found cookie on login page. Redirecting.');
+      this.$router.push({ name: 'Authenticated' });
+    };
   },
 };
 </script>

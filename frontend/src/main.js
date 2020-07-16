@@ -50,6 +50,8 @@ router.beforeEach((to, from, next) => {
       if (res) {
         // Token was valid
         console.log('Cookie found and token valid.');
+        // Make sure vuex logged in status is set to true
+        store.commit('auth/TOGGLE_AUTH_LOGGED_IN', true);
         next();
       } else {
         // Token wasn't valid

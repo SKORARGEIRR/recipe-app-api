@@ -2,12 +2,12 @@
   <div>
     <b-row>
       <b-col>
-        Menü
+        <main-menu></main-menu>
       </b-col>
     </b-row>
     <b-row>
       <b-col>
-        Submenü
+        <sub-menu></sub-menu>
       </b-col>
     </b-row>
     <b-row>
@@ -19,8 +19,15 @@
 </template>
 
 <script>
+import MainMenu from './MainMenu';
+import SubMenu from './SubMenu';
+
 export default {
   name: 'Map',
+  components: {
+    MainMenu,
+    SubMenu,
+  },
 };
 </script>
 

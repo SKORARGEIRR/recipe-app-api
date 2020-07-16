@@ -9,6 +9,6 @@ import router from '../../../router/index';
  *
  * @param {String} payload Selected dataset
  */
-export const setSelectDataset = function({commit, dispatch, state, rootState, rootGetters}, payload) {
+export const setDataset = function({commit, dispatch, state, rootState, rootGetters}, payload) {
   commit(mutationTypes.SET_MAP_DATASET, payload);
 };
